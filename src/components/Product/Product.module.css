@@ -1,0 +1,51 @@
+.container {
+  height: 100%;
+  grid-row: 1 / span 2;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  height: 100%;
+  padding: 0 1rem;
+  background-color: white;
+}
+
+.image {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 0.5rem 0rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+  text-align: center;
+  color: #a0a0a0;
+  margin: 0 0 1rem 0;
+  padding: 0.1rem 2rem;
+  line-height: 150%;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0 0.5rem 0;
+  row-gap: 1rem;
+  @media screen and (max-width: 1200px) {
+    justify-content: space-around;
+  }
+}
+
+.tags-button {
+  border: 0.1rem solid #a0a0a080;
+  border-radius: 0.3rem;
+  background-color: white; 
+  font-size: 1.2rem;
+  padding: 0.2rem 2rem;
+  cursor: pointer;
+  color: #525252;
+}

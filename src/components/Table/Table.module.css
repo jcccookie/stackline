@@ -1,0 +1,58 @@
+.container {
+  height: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 0rem 3rem;
+  background-color: white;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.table {
+  height: 95%;
+  overflow-y: scroll;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1em;
+  width: 100%;
+}
+
+.thead {
+  position: sticky;
+  top: 0; 
+  background-color: white; 
+  z-index: 1; 
+}
+
+th, td, tr {
+	padding: 1rem 2rem;
+  text-align: right;
+}
+
+th {
+  cursor: pointer;
+}
+
+.row {
+  border-bottom: solid 1px #a0a0a080;
+  color: #939393
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.icon {
+  padding: 1rem 0rem 1rem 0.5rem;
+}
+
+.column {
+  color: #525252;
+}
+
+th:first-child, td:first-child {
+  text-align: left;
+}
+
+td {
+  padding-right: 3.5rem;
+}

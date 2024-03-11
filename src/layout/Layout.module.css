@@ -1,0 +1,32 @@
+.nav-container {
+  background-color: #052849;
+  padding: 1rem;
+  text-align: left;
+}
+
+.main-container {
+  background-color: #F6F9FC;
+  padding: 5rem 1rem 5rem 1rem;
+  text-align: center;
+  margin: 0 auto;
+  @media screen and (max-width: 600px) { 
+    padding: 1rem 1rem 1rem 1rem;
+  }
+}
+
+.grid-wrapper {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 30rem 3fr;
+  grid-template-rows: auto;
+  gap: 2rem;
+  row-gap: 5rem;
+  padding: 1rem;
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: auto;
+    grid-template-rows: 1f 1f;
+    min-width: 350px;
+  }
+}
+
+
