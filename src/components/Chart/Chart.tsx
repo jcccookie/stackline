@@ -14,7 +14,6 @@ export default function Chart() {
   const data = useMemo(() => formatChartData({ types, sales }), [types, sales]);
 
   const [filteredData, setFilteredData] = useState(data);
-  console.log("🚀:zzz: ~ Chart ~ filteredData:", filteredData)
 
   const { max } = findMax({ types, data });
 
