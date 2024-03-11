@@ -1,29 +1,56 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { useSales } from '../../redux/selectors';
 import styles from './Chart.module.css'
 import { ResponsiveLine } from '@nivo/line'
 import formatChartData from '../../util/formatChartData';
 import findMax from '../../util/findMax';
 import { CHART_COLOR_MAPPING } from '../../util/constants';
+import { TABLE_COLUMNS } from '../../util/constants';
 
-export default function Chart({ types }: { types: string[] }) {
+export default function Chart() {
   const sales = useSales();
-  const data = formatChartData({ types, sales });
+  const types = Object.keys(TABLE_COLUMNS)
+    .filter(item => item !== 'weekEnding' && item !== 'unitsSold');
+  const data = useMemo(() => formatChartData({ types, sales }), [types, sales]);
+
+  const [filteredData, setFilteredData] = useState(data);
+
   const { max } = findMax({ types, data });
 
+  const handleTypeButtons = (type: string) => {
+    setFilteredData(data.filter(({ id }) => type === id));
+  };
 
+  const handleRefreshButton = () => {
+    setFilteredData(data);
+  };
 
   return (
     <div className={styles.container}>
-      <div>Retail Sales</div>
+      <div className={styles.wrapper}>
+        {types.map(type => 
+            <button 
+              key={type} 
+              onClick={() => handleTypeButtons(type)}
+              className={styles.button}
+              style={{
+                // @ts-ignore
+                backgroundColor: CHART_COLOR_MAPPING[type]
+              }}
+            // @ts-ignore
+            >{TABLE_COLUMNS[type]}</button>
+          )
+        }
+        <button onClick={handleRefreshButton} className={styles.button}>All</button>
+      </div>
       <ResponsiveLine
-        data={data}
+        data={filteredData}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         // @ts-ignore
         colors={({ id }) => CHART_COLOR_MAPPING[id]}
         xScale={{ type: 'time', format: '%Y-%m-%d', precision: 'day' }}
         xFormat="time:%Y-%m-%d"
-        yScale={{ 
+        yScale={{
           type: 'linear', 
           min: -(max * 3),
           max: max * 5,

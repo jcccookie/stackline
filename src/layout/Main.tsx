@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react';
 import styles from './Layout.module.css';
-import Product from '../components/Product/Product';
-import Chart from '../components/Chart/Chart';
-import Table from '../components/Table/Table';
 import { useDispatch } from 'react-redux'
 import { getProductById } from '../redux/productSlice';
 import type { AppDispatch  } from '../redux/store';
 import { useProductState } from '../redux/selectors';
+import Product from '../components/Product/Product';
+import Chart from '../components/Chart/Chart';
+import Table from '../components/Table/Table';
 
 export default function Main() {
   const productId = 'B007TIE0GQ';
-  const chartType = ['retailSales', 'wholesaleSales', 'unitsSold', 'retailerMargin'];
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -24,7 +23,12 @@ export default function Main() {
   } = useProductState();
 
   if (loading) {
-    return <div>Loading</div>
+    return <div style={{ 
+      textAlign: 'center', 
+      margin: '0 auto', 
+      fontSize: '5rem',
+      marginTop: '40rem'
+    }}>Loading...</div>
   };
 
   if (error) {
@@ -40,7 +44,7 @@ export default function Main() {
       <div className={styles['main-container']}>
         <div className={styles['grid-wrapper']}>
           <Product />
-          <Chart types={chartType}/>
+          <Chart />
           <Table />
         </div>
       </div>
