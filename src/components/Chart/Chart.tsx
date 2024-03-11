@@ -4,8 +4,7 @@ import styles from './Chart.module.css'
 import { ResponsiveLine } from '@nivo/line'
 import formatChartData from '../../util/formatChartData';
 import findMax from '../../util/findMax';
-import { CHART_COLOR_MAPPING } from '../../util/constants';
-import { TABLE_COLUMNS } from '../../util/constants';
+import { CHART_COLOR_MAPPING, TABLE_COLUMNS } from '../../util/constants';
 
 export default function Chart() {
   const sales = useSales();

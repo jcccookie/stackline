@@ -23,20 +23,15 @@ export default function Main() {
   } = useProductState();
 
   if (loading) {
-    return <div style={{ 
-      textAlign: 'center', 
-      margin: '0 auto', 
-      fontSize: '5rem',
-      marginTop: '40rem'
-    }}>Loading...</div>
+    return <div className={styles.text}>Loading...</div>
   };
 
   if (error) {
-    return <div>Error</div>
+    return <div className={styles.text}>Error</div>
   };
 
   if (!data) {
-    return <div>No products found</div>
+    return <div className={styles.text}>No products found</div>
   };
 
   return (
