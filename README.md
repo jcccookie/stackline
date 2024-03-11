@@ -1,11 +1,16 @@
 # Stackline Assessment
 
-Demo URL: https://stackline-kyeong.netlify.app
+## Demo URL
+https://stackline-kyeong.netlify.app
 
-## Available Scripts
+## Technologies
+- React
+- Redux (Redux Toolkit)
+- TypeScript
+- Nivo
 
+## Script
 In the project directory, you can run:
-
 ### `pnpm start`
 
 Runs the app in the development mode.\
