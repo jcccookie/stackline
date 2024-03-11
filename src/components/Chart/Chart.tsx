@@ -14,6 +14,7 @@ export default function Chart() {
   const data = useMemo(() => formatChartData({ types, sales }), [types, sales]);
 
   const [filteredData, setFilteredData] = useState(data);
+  console.log("🚀:zzz: ~ Chart ~ filteredData:", filteredData)
 
   const { max } = findMax({ types, data });
 
@@ -48,7 +49,12 @@ export default function Chart() {
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         // @ts-ignore
         colors={({ id }) => CHART_COLOR_MAPPING[id]}
-        xScale={{ type: 'time', format: '%Y-%m-%d', precision: 'day' }}
+        xScale={{ 
+          type: 'time', 
+          format: '%Y-%m-%d', 
+          precision: 'day',
+          useUTC: false 
+        }}
         xFormat="time:%Y-%m-%d"
         yScale={{
           type: 'linear', 
